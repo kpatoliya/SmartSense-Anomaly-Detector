@@ -42,8 +42,8 @@ class DatabaseManager:
     @contextmanager
     def get_connection(self):
         """Context manager for database connections"""
-        if self.db_url.startswith('sqlite:'):
-            db_path = self.db_url.replace('sqlite:///', '')
+        if self.db_url.startswith('sqlite3:'):
+            db_path = self.db_url.replace('sqlite3:///', '')
             conn = sqlite3.connect(db_path)
         else:
             # For other databases, you'd implement connection logic here

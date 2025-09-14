@@ -16,7 +16,7 @@ class Config:
     MQTT_PASS: str = os.getenv("MQTT_PASS")
     
     # Database Configuration
-    DB_URL: str = os.getenv("DB_URL", "sqlite:///sensor_data.db")
+    DB_URL: str = os.getenv("DB_URL", "sqlite3:///sensor_data.db")
     
     # Model Configuration
     MODEL_PATH: str = os.getenv("MODEL_PATH", "models/iforest_model.pkl")
@@ -25,7 +25,7 @@ class Config:
     
     # Sensor Configuration
     SENSOR_NAMES: List[str] = field(default_factory=lambda: ["temperature", "humidity", "pressure"])
-    SENSOR_MEANS: List[float] = field(default_factory=lambda: [25.0, 55.0, 1010.0])
+    SENSOR_MEANS: List[float] = field(default_factory=lambda: [25.0, 58.0, 1010.0])
     SENSOR_STDS: List[float] = field(default_factory=lambda: [8.0, 10.0, 10.0])
     Z_SCORE_THRESHOLD: float = float(os.getenv("Z_SCORE_THRESHOLD", 2.0))
     

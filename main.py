@@ -40,7 +40,7 @@ class AnomalyDetectionSystem:
                 logger.warning(f"Missing data in message: {payload}")
                 return
             
-            logger.info(f"🧠 Processing sensor data: {payload}")
+            logger.info(f"🧠 Processing sensor data: {values}")
             
             # Make prediction
             is_anomaly, z_scores = self.model_manager.predict(values)
