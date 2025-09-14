@@ -12,7 +12,7 @@ SMTP_PORT = os.getenv("SMTP_PORT", 587)
 SENDER_EMAIL = os.getenv("SENDER_EMAIL")
 SENDER_PASSWORD = os.getenv("SENDER_PASSWORD") # Use an app password or token
 
-def send_alert_email(sensor, payload):
+def send_alert_email(sensor, payload, z_scores):
     """
     Sends an alert email when an anomaly is detected.
     """
@@ -22,7 +22,7 @@ def send_alert_email(sensor, payload):
     RECEIVER_EMAIL = os.getenv("RECEIVER_EMAIL")
     cc_emails = []
     subject = f"🚨 Anomaly Detected! {sensor}"
-    body = f"Anomaly detected in {sensor} sensor\n\nData Logs: {json.dumps(payload, indent=2)}"
+    body = f"Anomaly detected in {sensor} sensor\n\nZ-Scores: {json.dumps(z_scores, indent=2)}\n\nData Logs: {json.dumps(payload, indent=2)}"
 
     # Email message setup
     message = MIMEMultipart()

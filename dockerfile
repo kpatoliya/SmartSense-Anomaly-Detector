@@ -11,4 +11,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Run your Python script
-CMD ["python", "detectServer.py"]
+CMD ["python", "main.py"]
